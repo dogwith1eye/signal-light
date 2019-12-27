@@ -21,7 +21,8 @@
             <button
               :disabled="Signal.Stopping.is(signal)"
               @click="onStop"
-              class="btn btn-blue uppercase">
+              class="btn btn-blue uppercase"
+            >
               Stop
             </button>
           </div>
@@ -29,15 +30,17 @@
             <button
               :disabled="Signal.Warning.is(signal)"
               @click="onWarn"
-              class="btn btn-blue uppercase">
+              class="btn btn-blue uppercase"
+            >
               Warn
             </button>
           </div>
           <div class="flex flex-col mb-4">
             <button
-            :disabled="Signal.Passing.is(signal)"
+              :disabled="Signal.Passing.is(signal)"
               @click="onPass"
-              class="btn btn-blue uppercase">
+              class="btn btn-blue uppercase"
+            >
               Pass
             </button>
           </div>
@@ -48,28 +51,27 @@
 </template>
 
 <script>
-import SignalLight from '../components/SignalLight.vue'
-import { SignalMatch, SignalMixin } from './signal'
+import SignalLight from "../components/SignalLight.vue";
+import { SignalMixin } from "./signal";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    SignalLight,
-    SignalMatch
+    SignalLight
   },
   mixins: [SignalMixin],
   methods: {
     onStop() {
-      this.signal = this.Signal.Stopping
+      this.signal = this.Signal.Stopping;
     },
     onWarn() {
-      this.signal = this.Signal.Warning
+      this.signal = this.Signal.Warning;
     },
     onPass() {
-      this.signal = this.Signal.Passing
+      this.signal = this.Signal.Passing;
     }
   }
-}
+};
 </script>
 
 <style>
@@ -86,4 +88,3 @@ export default {
   @apply opacity-50 cursor-not-allowed;
 }
 </style>
-
